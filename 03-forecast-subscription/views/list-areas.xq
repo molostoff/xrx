@@ -5,11 +5,14 @@ xquery version "1.0";
 let $doc := 'http://www.cems.uwe.ac.uk/xmlwiki/Met/shippingareas.xml'
 
 return
-<itemset name="area">{
-   for $item in doc($doc)/boundaries/boundary/@area
-   return
-   <item>
-      <label>{$item}</label>
-      <value>{$item}</value>
-   </item>
-}</itemset>
+<codes>
+    <itemset name="area">{
+       for $item in doc($doc)/boundaries/boundary/@area
+          order by $item
+       return
+       <item>
+          <label>{string($item)}</label>
+          <value>{string($item)}</value>
+       </item>
+    }</itemset>
+</codes>
