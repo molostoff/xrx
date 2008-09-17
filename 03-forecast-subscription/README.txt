@@ -25,6 +25,7 @@ The data folder contains one XML file for each subscription
 Contents of view folder
 views/list-itmes.xq - Create an HTML table, one record per item
 views/view-item.xq - View a single item (read only) with a nvigation to Edit and Delete
+views/list-areas.xq - Creates a list of items for the selction list
 
 
 Contents of edit
