@@ -20,9 +20,19 @@ The source of the Shipping Areas comes from here;
 
 http://www.cems.uwe.ac.uk/xmlwiki/Met/shippingareas.xml
 
+The data folder contains one XML file for each subscription
+
+Contents of view folder
+views/list-itmes.xq - Create an HTML table, one record per item
+views/view-item.xq - View a single item (read only) with a nvigation to Edit and Delete
+
+
+Contents of edit
 edit/edit.xq - the main XForms editor that takes new records and updates existing ones
 edit/save-new.xq - takes submissions from edit.xq and saves the data as a new records
 edit/update.xq - takes submissions from edit.xq and replaces old records with the form data
 edit/new-instance.xml - the initial values for the XForms
 edit/next-id.xml - stores the id number for the next new entry
 edit/delete.xq - deletes records
+
+Contents of search
