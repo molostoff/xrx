@@ -1,0 +1,10 @@
+<faq>
+   <id></id>
+   <faq-category-id/>
+   <question/>
+   <answer/>
+   <created-by/>
+   <create-date/>
+   <last-modified-by/>
+   <modification-date/>
+</faq>
