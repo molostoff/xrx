@@ -26,6 +26,7 @@ return
       </style>
    </head>
    <body>
+   <a href="../index.xhtml">FAQ Home</a>    &gt; <a href="list-items.xq">List all items</a>
    <h1>View FAQ</h1>
    {let $item := collection($collection)/faq[id = $id]
       return
@@ -37,7 +38,7 @@ return
           </table>
    }
    <a href="../edit/edit.xq?id={$id}">Edit Item</a>
-             <a href="../edit/delete.xq?id={$id}">Delete Item</a>
-   <p><a href="list-items.xq">List all items</a></p>
+             <a href="../edit/delete-confirm.xq?id={$id}">Delete Item</a>
+
    </body>
 </html>

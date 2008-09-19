@@ -20,6 +20,7 @@ return
       </style>
    </head>
    <body>
+   <a href="../index.xhtml">FAQ Home</a>
    <h1>List FAQs</h1>
    <table>
        <thead>
@@ -42,7 +43,7 @@ return
             <td>{$item/question/text()}</td>            
              <td><a href="view-item.xq?id={$id}">View</a></td>
              <td><a href="../edit/edit.xq?id={$id}">Edit</a></td>
-             <td><a href="../edit/delete.xq?id={$id}">Delete</a></td>
+             <td><a href="../edit/delete-confirm.xq?id={$id}">Delete</a></td>
          </tr> 
    }</tbody></table>
    <a href="../edit/edit.xq?new=true">New</a>
