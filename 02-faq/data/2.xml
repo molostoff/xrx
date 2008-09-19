@@ -1,0 +1,9 @@
+<faq>
+   <faq-category-id>2</faq-category-id>
+   <question>What does XRX stand for?</question>
+   <answer>XForms on the client, REST interfaces and XQuery on the server.</answer>
+   <created-by>dan</created-by>
+   <creation-timestamp></creation-timestamp>
+   <last-modified-by>dan</last-modified-by>
+   <modification-timestamp></modification-timestamp>
+</faq>
