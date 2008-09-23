@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subscription>
+    <id>4</id>
+    <username>John Smith</username>
+     <password>asdf</password>
+     <mobilenumber>asdf</mobilenumber>
+     <area>bailey</area>
+     <status>true</status>
+  </subscription>

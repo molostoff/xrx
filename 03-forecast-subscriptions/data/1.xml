@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subscription>
+    <id>1</id>
+    <username>Fred Bloggs</username>
+    <password>hafjahfjafa</password>
+    <mobilenumber>447777777</mobilenumber>
+    <area>lundy</area>
+    <status>off</status>
+</subscription>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subscription>
+    <id>3</id>
+    <username>Biscay Sailor</username>
+     <password>asdf</password>
+     <mobilenumber>asdf</mobilenumber>
+     <area>biscay</area>
+     <status>true</status>
+  </subscription>
