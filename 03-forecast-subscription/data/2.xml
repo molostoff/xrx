@@ -1,8 +1,0 @@
-<subscription>
-    <id>2</id>
-    <username>Jane Doe</username>
-    <password>asdfghjkl</password>
-    <mobilenumber>1234567</mobilenumber>
-    <area>lundy</area>
-    <status>on</status>
-</subscription>
