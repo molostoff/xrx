@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subscription>
+    <id>5</id>
+    <username>Sally Sailor</username>
+     <password>123</password>
+     <mobilenumber>12345678</mobilenumber>
+     <area>fair isle</area>
+     <status>true</status>
+  </subscription>

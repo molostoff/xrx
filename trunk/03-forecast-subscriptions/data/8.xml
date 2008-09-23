@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subscription>
+    <id>8</id>
+    <username>Steve Shipwise</username>
+     <password>123</password>
+     <mobilenumber>1234567</mobilenumber>
+     <area>south utsire</area>
+     <status>true</status>
+  </subscription>

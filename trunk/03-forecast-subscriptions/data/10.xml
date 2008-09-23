@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subscription>
+    <id>10</id>
+    <username>Tammy Test</username>
+     <password>123</password>
+     <mobilenumber>1234567</mobilenumber>
+     <area>trafalgar</area>
+     <status>true</status>
+  </subscription>
