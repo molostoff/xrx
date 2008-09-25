@@ -1,0 +1,12 @@
+body {font-family:Verdana, Arial, Helvetica, sans-serif;}
+
+thead {
+   font-weight:bold;
+   background-color:blue;
+   color:white;
+   text-align:center;
+}
+
+amount {
+   text-align:right;
+}
