@@ -1,12 +1,217 @@
-body {font-family:Verdana, Arial, Helvetica, sans-serif;}
+/*
+  ----------------------------------------------------
+  CSS: XQuery Course
+  Adapted from CSS on Office of the Historian, United States Department of State, website v.1.0
+  ----------------------------------------------------
+ */
+
+/* ====Table of Contents==== */
+
+/* ====0. XQuery Course Tags  ==== */
+/* ====1. Body Tags           ==== */
+/* ====2. Content Base Styles ==== */
+/* ====3. Default Link Styles ==== */
+/* ====4. Main Layout Styles  ==== */
+/* ====5. Main Content Layout ==== */
+/* ====6. Footer              ==== */
+
+/* ====0. XQuery Course Tags ==== */
+table {
+   font: inherit;
+   border: none;
+}
 
 thead {
-   font-weight:bold;
-   background-color:blue;
-   color:white;
-   text-align:center;
+   font-weight: bold;
+   background-color: #f6f6fa;
+   color: #181a31;
+   text-align: center;
+   border-width: 1px;
+   border-style: solid;
+   border-color: black;
+}
+
+td {
+   border-bottom-width: 1px;
+   border-bottom-style: dashed;
+   border-bottom-color: #f6f6fa;
+}
+
+td.term {
+   width: 10em
+}
+
+td.definition {
+   width:auto; 
 }
 
 amount {
    text-align:right;
+}
+
+
+/* ====1. Body Tags==== */
+body {
+    margin:auto;
+    text-align:center;
+    width: 900px;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size:76%;
+    color: #606060;
+    background-color: #FFFFFF;
+    background: #f6f6fa;
+}
+
+/* ====2. Content Base Styles==== */
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: Verdana, Helvetica, sans-serif;
+    color: #181a31;
+    font-weight: bold;
+}
+p, ul, ol, li, dl, dt, dd, td, h5, h6, h7 {
+    font-size: 1em;
+    font-family: Verdana, Helvetica, sans-serif;
+    line-height: 1.35em;
+}
+h1 {
+    font-size: 1.8em;
+    text-align:left;
+}
+h2 {
+    font-size: 1.6em;
+}
+h3 {
+    font-size: 1.4em;
+}
+h4 {
+    font-size: 1.2em;
+}
+em {
+    color: #3e3e3e;
+}
+h1 {
+    margin: 0 0 1em 0;
+}
+h2 {
+    margin: 0 0 1em 0;
+}
+h3 {
+    margin: 1em 0 1em 0;
+}
+h4 {
+    margin: .67em 0 .2em 0;
+}
+h5 {
+    margin: .67em 0 .5em 0;
+}
+h6 {
+    margin: 0 0 .5em 0;
+}
+h7 {
+    margin: 0 0 .5em 0;
+    display: block;
+}
+ul, ol, li, dl, dt, dd {
+    color: #606060;
+}
+
+/* ====3. Default Link Styles==== */
+a, a:link {
+    color: #496690;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:visited {
+    color: #181a31;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover, a:active {
+    text-decoration: underline;
+    color: #262941;
+    font-weight: bold;
+}
+a img {
+    border: none;
+}
+
+/* ====4. Main Layout Styles==== */
+#wrapper {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 0px 15px 0px;
+    display: block;
+    width: 900px;
+    border: 1px solid #dddde8;
+    background-color: #FFFFFF;
+}
+#header {
+    margin-bottom: 1em;
+    line-height: 100%;
+}
+
+/* ====5. Main Content Layout==== */
+/* Maincontent holds all content divs bewteen header and footer */
+#maincontent {
+    text-align: left;
+    margin-top: 10px;
+    padding-top: 0px;
+}
+
+/* Div content for two column layout scheme--mainly used for top level subpages */
+div.content {
+    margin: 0 100px 50px 100px;
+    padding: 0 1em 0 1.3em;
+    line-height: 1.9em;
+}
+div.content ul {
+    list-style-type: none;
+    margin: 1em 0 1em 0;
+    padding-left: 10px;
+}
+div.content li {
+    margin: .25em 0 .25em 0em;
+    padding: 0 0 0 .25em;
+    text-align: left;
+    font-weight: normal;
+}
+div.content a, a:link {
+/* was div.content li, a, a:link - JW */    
+    color: #496690;
+    text-decoration: none;
+}
+div.content li a:visited {
+    color: #496690;
+    text-decoration: none;
+}
+div.content li a:hover {
+    color: #181a31;
+    text-decoration: underline;
+}
+div.content li a:active {
+    color: #181a31;
+    text-decoration:none;
+}
+/* Div contentnarrow for three column layout scheme --used for all internal pages beyond top level subpages. */
+div.contentnarrow {
+    margin: 0 160px 0 220px;
+    padding: 0 1em 0 1.3em;
+    line-height: 1.9em;
+}
+    
+/* ====6. Footer==== */
+#footer {
+    display: block;
+    border: 1px solid #dddde8;
+    padding: 2em;
+    background-color: #f6f6fa;
+    clear: both;
+}
+
+#footer p {
+    text-align: left;
+    font-size: .925em;
+    line-height: 1em;
+    color: #3e3e3e;
 }
