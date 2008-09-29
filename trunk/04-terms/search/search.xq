@@ -2,7 +2,7 @@ xquery version "1.0";
 declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
 
 (: Search all terms by passing this xquery an query paramter q on the URL:
-   $hostname/db/mdr/glossaries/search/search.xq?string=mystr
+   $hostname/db/apps/terms/search/search.xq?q=mystr
 :)
 
 let $collection :=  concat(substring-before(substring-after(request:get-uri(), '/exist/rest'), '/search/'), '/data')
