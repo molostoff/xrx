@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:exist="http://exist.sourceforge.net/NS/exist">
+    <title>Advanced Term Seach</title>
+    <style type="text/css">
+        @namespace xf url("http://www.w3.org/2002/xforms");
+        xf|input  &gt; xf|label {font-weight: bold;}
+        .xf-value {width: 250px}
+    </style>
+    <xf:model>
+        <xf:instance xmlns="">
+            <data>
+                <q/>
+                <option>exact</option>
+                <not/>
+            </data>
+        </xf:instance>
+        <xf:submission id="advanced-search" method="get" action="advanced-search.xq" replace="all" separator="&amp;">
+            <xf:toggle case="case-busy" ev:event="xforms-submit"/>
+            <xf:toggle case="case-submit-error" ev:event="xforms-submit-error"/>
+            <xf:toggle case="case-done" ev:event="xforms-submit-done"/>
+        </xf:submission>
+        <xf:action ev:event="xforms-ready">
+            <xf:setfocus control="search-input"/>
+        </xf:action>
+    </xf:model>
+    <body>
+        <a class="breadcrumb" href="../../index.xhtml">App Home</a> &gt;
+        <a class="breadcrumb" href="../index.xhtml">Terms</a>
+        <h1>Advanced Terms Search</h1>
+        <p>This will search all Terms with a Term Name that meets the following criteria:</p>
+        <xf:group>
+            <xf:input ref="q" id="search-input" incremental="true">
+                <xf:label>Term Name:</xf:label>
+                <xf:action ev:event="DOMActivate">
+                    <xf:send submission="advanced-search"/>
+                </xf:action>
+            </xf:input>
+            <xf:select1 ref="option" appearance="full">
+                <xf:item>
+                    <xf:label>Exact Match</xf:label>
+                    <xf:value>exact</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Starts with</xf:label>
+                    <xf:value>prefix</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Anywhere in Term Name</xf:label>
+                    <xf:value>any</xf:value>
+                </xf:item>
+            </xf:select1>
+        </xf:group>
+        <xf:input ref="not" id="search-input" incremental="true">
+            <xf:label>Exclued Terms Names with (Filter):</xf:label>
+            <xf:action ev:event="DOMActivate">
+                <xf:send submission="advanced-search"/>
+            </xf:action>
+        </xf:input>
+        <br/>
+        <xf:submit submission="advanced-search">
+            <xf:label>Search</xf:label>
+        </xf:submit>
+        <a href="search.xhtml">Return to Simple Search</a>
+        <xf:switch>
+            <xf:case id="default"/>
+            <xf:case id="case-busy">
+                <p>busy...</p>
+            </xf:case>
+            <xf:case id="case-submit-error">
+                <p>submit-error</p>
+            </xf:case>
+            <xf:case id="case-done">
+                <p>Case done should never appear since we are doing a replace all.</p>
+            </xf:case>
+        </xf:switch>
+    </body>
+</html>
