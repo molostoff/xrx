@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<code-table>
+    <item>
+        <path>/db/webroot/about</path>
+        <title>About</title>
+    </item>
+    <item>
+        <path>/db/webroot/training</path>
+        <title>Training</title>
+    </item>
+    <item>
+        <path>/db/webroot/faqs</path>
+        <title>Frequently Asked Questions</title>
+    </item>
+    <item>
+        <path>/db/webroot/training/xforms</path>
+        <title>XForms</title>
+    </item>
+    <item>
+        <path>/db/webroot/training/rest</path>
+        <title>ReST</title>
+    </item>
+    <item>
+        <path>/db/webroot/training/xquery</path>
+        <title>XQuery</title>
+    </item>
+    <item>
+        <path>/db/webroot/products</path>
+        <title>Products</title>
+    </item>
+    <item>
+        <path>/db/webroot/support</path>
+        <title>Support</title>
+    </item>
+</code-table>
