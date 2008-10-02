@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+    <id>3</id>
+    <name>Item Three</name>
+    <description>This is a detailed description of item 3.</description>
+    <category>small</category>
+    <status>published</status>
+    <tag>tag-3</tag>
+</item>
