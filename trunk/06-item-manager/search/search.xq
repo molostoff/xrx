@@ -16,10 +16,9 @@ return
         <p><b>Search results for: </b>{$q} <b> In collection: </b>{$collection}</p>
      <ol>{
         (: search any column that matchs this string :)
-        for $hit in collection($collection)/item
-           where contains($hit/*/text(), $q)
+        for $hit in collection($collection)/item[*/text() &= $q]
         return
-           <li>{$hit/element1/text()} {$hit/element1/text()}</li>
+           <li><a href="../views/view-item.xq?id={$hit/id/text()}">{$hit/name/text()}</a></li>
       }</ol>
       
       <a href="search.xhtml">New Search</a>
