@@ -9,7 +9,7 @@ let $collection := '/db/apps/item-manager/data'
 let $item := request:get-data()
  
 (: this logs you into the collection :)
-let $login := xmldb:login($collection, 'mdr', 'mdr123')
+let $login := xmldb:login($collection, 'login', 'password')
 
 (: get the id out of the posted document :)
 let $id := $item/id/text() 
@@ -22,7 +22,7 @@ let $store := xmldb:store($collection, $file, $item)
 return
 <html>
     <head>
-       <title>Update Conformation</title>
+       <title>Update Confirmation</title>
     </head>
     <body>
        <a href="../index.xhtml">Item Home</a> &gt; <a href="../views/list-items.xq">List all Items</a> &gt; <a href="../views/view-item.xq?id={$id}">View Item</a>
