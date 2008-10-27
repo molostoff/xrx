@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cite>
+  <!-- citations per wikipedia: http://en.wikipedia.org/wiki/Wikipedia:Template_messages/Sources_of_articles/Citation_quick_reference
+-->
+
+   <!-- web, book, journal, news, blog etc -->
+   <cite-type-code>web</cite-type-code>
+   
+   <!-- required for a web site -->
+   <cite-url>http://</cite-url>
+   
+   <!-- required for all types -->
+   <cite-title/>
+   
+   <!-- the date you accessed the web page using YYYY-MM-DD format with wikilinks -->
+   <cite-accessdate/>
+   
+   <!-- full name of the author including middle name -->
+   <cite-author/>
+   
+   <!-- author last name used for sorting -->
+   <cite-last/>
+   <cite-first/>
+   
+   <!-- link to author's page -->
+   <cite-authorlink/>
+   
+   <!-- list of co-autors, comma seperated -->
+   <cite-coauthors/>
+   
+   <!-- the publication date of the web page or book  using YYYY-MM-DD format with wikilinks-->
+   <cite-date/>
+   
+   <!-- indicate if this item is part of a larger work such as a newspaper -->
+   <cite-partof-work/>
+   
+   <!-- the name of a publisher -->
+   <cite-publisher/>
+   
+    <!--The number if this was a book -->
+   <cite-page-number/>
+   
+   <!-- a count of the number of pages if a book -->
+   <cite-pages-count/>
+   
+   <!-- default is HTML, Other options are PDC, MS-Word, MS-Excel, MS-PowerPoint -->
+   <cite-format-code/>
+   
+   <!-- if not specified, English is the default -->
+   <cite-language/>
+   
+   <!-- Relevant quote. -->
+   <cite-quote/>
+   
+   <!-- URL of the archive location of the item, and archivedate: Date when the item was archived, in YYYY-MM-DD format, e.g. 2006-02-17. Must not be wikilinked; the template will link it automatically. (optional, but must use both together or neither) -->
+   <cite-archiveurl/>
+   <cite-archivedate/>
+</cite>
