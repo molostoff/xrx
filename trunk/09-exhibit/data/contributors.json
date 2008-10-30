@@ -1,28 +1,40 @@
 {
  "items" : [ 
-    {  author:       "Alex Bleasdale",
+    {  type:         "author",
+       label:        "Alex Bleasdale",
+       interest:     "Rich Clients, UI",
        location:     "Minneapolis, MN",
-       image-url:    "http://www.danmccreary.com/xrx/alex.jpg"
+       "image-url":  "http://code.google.com/p/xrx/source/browse/#svn/trunk/09-exhibit/images/alex.jpg"
     }, 
-    {  author:       "Arun Batchu",
+    {  type:         "author",
+       label:        "Arun Batchu",
+       interest:     "REST, Java",
        location:     "Eden Prairie, MN, USA",
-       image-url:    "http://www.danmccreary.com/xrx/arun.jpg"
+       "image-url":  "http://code.google.com/p/xrx/source/browse/#svn/trunk/09-exhibit/images/arun.jpg"
     }, 
-    {  author:       "Kurt Cagle",
+    {  type:         "author",
+       label:        "Kurt Cagle",
+       interest:     "XForms, REST, XML",
        location:     "Vancover, BC, CA",
-       image-url:    "http://www.danmccreary.com/xrx/kurt.jpg"
+       "image-url":  "http://code.google.com/p/xrx/source/browse/#svn/trunk/09-exhibit/images/kurt.jpg"
     }, 
-    {  author:       "Dan McCreary",
+    {  type:         "author",
+       label:        "Dan McCreary",
+       interest:     "XForms, REST, XQuery, XML, Semantic Web",
        location:     "St. Louis Park, MN, USA",
-       image-url:    "http://www.danmccreary.com/xrx/dan.jpg"
+       "image-url":  "http://code.google.com/p/xrx/source/browse/#svn/trunk/09-exhibit/images/dan.jpg"
     }, 
-    {  author:       "Joe Wicentowski",
+    {  type:         "author",
+       label:        "Joe Wicentowski",
+       interest:     "History, TEI",
        location:     "Washington, DC, USA",
-       image-url:    "http://www.danmccreary.com/xrx/joe.jpg"
+       "image-url":  "http://code.google.com/p/xrx/source/browse/#svn/trunk/09-exhibit/images/joe.jpg"
     }, 
-    {  author:       "Chris Wallace",
+    {  type:         "author",
+       label:        "Chris Wallace",
+       interest:     "XQuery",
        location:     "Bristol, UK",
-       image-url:    "http://www.danmccreary.com/xrx/chris.jpg"
+       "image-url":  "http://code.google.com/p/xrx/source/browse/#svn/trunk/09-exhibit/images/chris.jpg"
     }
   ]
 }
