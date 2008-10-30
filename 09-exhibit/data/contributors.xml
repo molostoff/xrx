@@ -1,0 +1,65 @@
+<contributors>
+    <contributor>
+        <author-name> Alex Bleasdale</author-name>
+        <bio> Alex has been building web sites and applications for 10 years. During that time he's
+            taught MA and BA courses at the University of Sussex, worked as a developer for two
+            creative agencies in London (Bates Dorland and Tribal DDB), for 4 years at the BBC as a
+            developer and has been living in Minneapolis for the past 2 years. He worked for
+            Minnesota Department of Revenue on a project that was modeled on the XRX architecture
+            and currently works as a developer for OLSON in Minneapolis. </bio>
+        <location>Minneapolis, MN</location>
+    </contributor>
+
+    <contributor>
+        <author-name> Arun Batchu</author-name>
+        <bio> Need a real bio for Arun....but till then... Arun is a software developer in living in
+            Minneapolis. He is an expert on all phases of software development and Agile
+            methodologies. He is interested in Wiki and the creation of deep RESTful interfaces. </bio>
+        <location>Eden Prairie, MN, USA</location>
+    </contributor>
+
+    <contributor>
+        <author-name> Kurt Cagle</author-name>
+        <bio> Need a real bio for Kurt....but till then... Kurt Cagle is the Managing Editor for
+            xml.com, part of the O'Reilly Networks. He also write a blog dedicated to XRX issues
+            called the Metaphorical Web. He has written extensively on XML topics. </bio>
+        <location>Vancover, BC, CA</location>
+    </contributor>
+
+    <contributor>
+        <author-name> Dan McCreary</author-name>
+        <image-url></image-url>
+        <bio> Dan is a enterprise data architect and strategist living in Minneapolis. He has worked
+            for organizations such as Bell Labs and Steve Job's NeXT Computer as well as founding
+            his own consulting firm of over 75 people. He has a background in object-oriented
+            programming and declarative XML languages (XSLT, XML Schema design, XForms, XQuery, RDF
+            and OWL). He has published articles on various technology topics including the semantic
+            web, metadata registries, enterprise integration strategies, XForms and XQuery. He was
+            the primary author of the author of the XForms Tutorial and Cookbook and the XRX
+            Wikibook. </bio>
+        <location>St. Louis Park, MN, USA</location>
+    </contributor>
+
+    <contributor>
+        <author-name> Joe Wicentowski</author-name>
+        <bio> Joe is a historian at the U.S. Department of State who researches the history of U.S.
+            foreign relations. He is an example of how XRX can empower non-programmer, content
+            experts to take control of their own information. He came to XRX when he discovered that
+            (1) XML was an ideal format for publishing his office's richly annotated historical
+            content, and (2) XQuery was simple to learn and allowed 'content experts' like him to
+            take total and fine-grained control over displaying, querying, and re-purposing their
+            growing body of XML content stored in native XML databases. Furthermore, XRX has allowed
+            him and his colleagues to design new tools to manage their workflow, mine their content
+            for research, and give the public new ways to explore their history online. </bio>
+        <location>Washington, DC, USA</location>
+    </contributor>
+
+    <contributor>
+        <author-name> Chris Wallace</author-name>
+        <bio> Need a real bio for Chris....but till then... Chris is a Senior Lecturer at the School
+            of Information Systems at the University of the West of England in Bristol, UK. Chris
+            has been an active instructor in XML topics for many years and is one of the primary
+            authors of the XQuery wikibook. Chris is interested in XQuery, RDF and the semantic web. </bio>
+        <location>Bristol, UK</location>
+    </contributor>
+</contributors>
