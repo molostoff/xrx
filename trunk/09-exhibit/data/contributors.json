@@ -1,0 +1,28 @@
+{
+ "items" : [ 
+    {  author:       "Alex Bleasdale",
+       location:     "Minneapolis, MN",
+       image-url:    "http://www.danmccreary.com/xrx/alex.jpg"
+    }, 
+    {  author:       "Arun Batchu",
+       location:     "Eden Prairie, MN, USA",
+       image-url:    "http://www.danmccreary.com/xrx/arun.jpg"
+    }, 
+    {  author:       "Kurt Cagle",
+       location:     "Vancover, BC, CA",
+       image-url:    "http://www.danmccreary.com/xrx/kurt.jpg"
+    }, 
+    {  author:       "Dan McCreary",
+       location:     "St. Louis Park, MN, USA",
+       image-url:    "http://www.danmccreary.com/xrx/dan.jpg"
+    }, 
+    {  author:       "Joe Wicentowski",
+       location:     "Washington, DC, USA",
+       image-url:    "http://www.danmccreary.com/xrx/joe.jpg"
+    }, 
+    {  author:       "Chris Wallace",
+       location:     "Bristol, UK",
+       image-url:    "http://www.danmccreary.com/xrx/chris.jpg"
+    }
+  ]
+}
