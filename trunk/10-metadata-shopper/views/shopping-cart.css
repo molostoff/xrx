@@ -1,0 +1,52 @@
+body  {
+   color: black; background-color: white;
+   margin: 5px; padding: 5px;
+   font-family: Ariel, Helvetica, sans-serif;
+}
+   
+.shopping-cart-sidebar {
+   position: relative;
+   margin: 0 0 0 522px;
+   width: 239px;
+   height: 100%;
+   font-size: 1.1em;
+   padding: 10px;
+   border: 1px solid green;
+  }
+  
+.search {
+   position: absolute;
+   left: 10px;
+   width:500px;
+   border: 1px solid blue;
+   padding: 0 10px 10px 10px;
+}
+
+.search-results {
+   position: relative;
+   width:auto;
+   border: 1px solid orange;
+   margin: 10px  0 0 0;
+   padding: 0 10px 10px 10px;
+}
+
+.result {
+display: block;
+padding: 0 0 10px 0;
+}
+
+.result-text {
+display: inline;
+}
+
+.debug {
+   position: absolute;
+   left: 10px;
+   top: 300px;
+   width:auto;
+   border: 1px solid red;
+   margin: 10px  0 0 0px;
+   padding: 0 0 0 10px;
+   font-size: 1.5em;
+   line-height: 1.4em;
+}
