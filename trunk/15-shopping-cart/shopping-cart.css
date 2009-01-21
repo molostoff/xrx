@@ -1,0 +1,71 @@
+body  {
+   color: black; background-color: white;
+   margin: 5px; padding: 5px;
+   font-family: Ariel, Helvetica, sans-serif;
+}
+
+#left-column {
+   width: 52%;
+   border: 1px solid blue;
+}
+
+#right-column {
+   position:absolute;
+   top: 100px;
+   width: 45%;
+   margin-left: 52%;
+   border: 1px solid blue;
+}
+
+#search-form {
+   border: 1px solid blue;
+   margin: 10px;
+   padding: 10px;
+}
+
+#search-results {
+   margin: 0 10px 10px 10px;
+   padding: 0 10px 10px 10px;
+   font-size: .8em;
+}
+  
+#shopping-cart-save {
+   font-size: .8em;
+   padding: 10px;
+   border: 1px solid blue;
+   background-color: white;
+  }
+  
+#shopping-cart-sidebar {
+   font-size: .8em;
+   padding: 10px;
+  }
+  
+.list-files {
+   font-size: .8em;
+   color:blue;
+   background-color: white;
+   border: black 1px solid;
+   padding: 7px;
+   overflow: auto;
+   }
+   
+.result {
+padding: 0 0 5px 0;
+}
+
+.result-text {
+display: inline;
+}
+
+.debug {
+   position: absolute;
+   left: 10px;
+   top: 300px;
+   width:auto;
+   border: 1px solid red;
+   margin: 10px  0 0 0px;
+   padding: 0 0 0 10px;
+   font-size: 1.5em;
+   line-height: 1.4em;
+}
