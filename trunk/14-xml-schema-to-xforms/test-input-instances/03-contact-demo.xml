@@ -1,0 +1,11 @@
+<ContactDocument>
+   <Person>
+      <PersonPrefixName>String</PersonPrefixName>
+      <PersonGivenName>String</PersonGivenName>
+      <PersonMiddleName>String</PersonMiddleName>
+      <PersonFamilyName>String</PersonFamilyName>
+      <PersonSuffixName>String</PersonSuffixName>
+      <PersonGenderCode>String</PersonGenderCode>
+      <PersonBirthDate>1967-08-13</PersonBirthDate>
+   </Person>
+</ContactDocument>

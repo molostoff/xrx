@@ -1,0 +1,14 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="required-test">
+      <xs:annotation>
+         <xs:documentation>Comment describing your root element</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="required"/>
+            <xs:element name="optional" minOccurs="0"/>
+            <xs:element name="two-required" minOccurs="2" maxOccurs="2"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

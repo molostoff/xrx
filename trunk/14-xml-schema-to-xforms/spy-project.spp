@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+	<Folder FolderName="XML Files" ExtStr="xml;cml;math;mtx;rdf;smil;svg;wml">
+		<ExtMountFolder FolderName="test-input-instances"/>
+	</Folder>
+	<ExtMountFolder FolderName="test-input-schemas"/>
+</Project>

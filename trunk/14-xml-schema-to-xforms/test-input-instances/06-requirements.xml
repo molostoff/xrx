@@ -1,0 +1,14 @@
+<Requirement>
+   <RequirementID>text</RequirementID>
+   <RequirementParentID>text</RequirementParentID>
+   <RequirementShortName>text</RequirementShortName>
+   <RequirementDescriptionText>text</RequirementDescriptionText>
+   <ProjectID>text</ProjectID>
+   <RequirementLevelCode>3</RequirementLevelCode>
+   <RequirementPriorityCode>medium</RequirementPriorityCode>
+   <RequirementCompletionStatusCode>new</RequirementCompletionStatusCode>
+   <RequirementBusinessTerms>text</RequirementBusinessTerms>
+   <RequirementDataElementID>text</RequirementDataElementID>
+   <RequirmentBusienssRuleID>text</RequirmentBusienssRuleID>
+   <RequirmentBusinessAnalists>text</RequirmentBusinessAnalists>
+</Requirement>

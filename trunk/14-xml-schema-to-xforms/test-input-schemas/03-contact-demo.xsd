@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="ContactDocument" abstract="false" nillable="false">
+      <xs:annotation>
+         <xs:documentation>A contact file.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="Person">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="PersonPrefixName" type="xs:string" minOccurs="0"/>
+                     <xs:element name="PersonGivenName" type="xs:string"/>
+                     <xs:element name="PersonMiddleName" type="xs:string" minOccurs="0"/>
+                     <xs:element name="PersonFamilyName" type="xs:string"/>
+                     <xs:element name="PersonSuffixName" type="xs:string" minOccurs="0"/>
+                     <xs:element name="PersonGenderCode" type="xs:string" minOccurs="0"/>
+                     <xs:element name="PersonBirthDate" type="xs:date" minOccurs="0"/>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
