@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Dan McCreary (MINNESOTA DEPT. OF REVENUE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="typed-elements">
+      <xs:annotation>
+         <xs:documentation>A simple XML Schema with several types.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="anyURI" type="xs:anyURI"/>
+            <xs:element name="boolean" type="xs:boolean"/>
+            <xs:element name="byte" type="xs:byte"/>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="dateTime" type="xs:dateTime"/>
+            <xs:element name="decimal" type="xs:decimal"/>
+            <xs:element name="integer" type="xs:integer"/>
+            <xs:element name="positiveInteger" type="xs:positiveInteger"/>
+            <xs:element name="short" type="xs:short"/>
+            <xs:element name="string" type="xs:string"/>
+            <xs:element name="unsignedByte" type="xs:unsignedByte"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

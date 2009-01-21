@@ -1,0 +1,6 @@
+<required-test>
+   <required>text</required>
+   <optional>text</optional>
+   <two-required>text</two-required>
+   <two-required>text</two-required>
+</required-test>

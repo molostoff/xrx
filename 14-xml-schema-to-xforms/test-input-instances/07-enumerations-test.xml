@@ -1,0 +1,5 @@
+<EnumerationsTest>
+   <gender>female</gender>
+   <PersonGenderCode>male</PersonGenderCode>
+   <DocumentApprovalStatusCode>draft</DocumentApprovalStatusCode>
+</EnumerationsTest>

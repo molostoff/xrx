@@ -1,0 +1,13 @@
+<typed-elements>
+   <anyURI>http://www.danmccreary.com</anyURI>
+   <boolean>true</boolean>
+   <byte>127</byte>
+   <date>1967-08-13</date>
+   <dateTime>2001-12-17T09:30:47.0Z</dateTime>
+   <decimal>0.0</decimal>
+   <integer>0</integer>
+   <positiveInteger>2</positiveInteger>
+   <short>4096</short>
+   <string>String</string>
+   <unsignedByte>255</unsignedByte>
+</typed-elements>

@@ -1,0 +1,96 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="Requirement" abstract="false" nillable="false">
+      <xs:annotation>
+         <xs:documentation>A business requirement for a project.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType mixed="false">
+         <xs:sequence>
+            <xs:element name="RequirementID" nillable="false">
+               <xs:annotation>
+                  <xs:documentation>An identifier for this requirment.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="RequirementParentID" nillable="false">
+               <xs:annotation>
+                  <xs:documentation>The parent requirement.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="RequirementShortName" nillable="false">
+               <xs:annotation>
+                  <xs:documentation>The name of the requirment up to 100 characters.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="RequirementDescriptionText" nillable="false" minOccurs="0"/>
+            <xs:element name="ProjectID" nillable="false" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>The projects this requirment is related to.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="RequirementLevelCode" default="3" nillable="false" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The requirement level in the requirment hierarchy.  Used for non-recursive reports for indentation.</xs:documentation>
+               </xs:annotation>
+               <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                     <xs:enumeration value="1"/>
+                     <xs:enumeration value="2"/>
+                     <xs:enumeration value="3"/>
+                     <xs:enumeration value="4"/>
+                     <xs:enumeration value="5"/>
+                     <xs:enumeration value="6"/>
+                     <xs:enumeration value="7"/>
+                  </xs:restriction>
+               </xs:simpleType>
+            </xs:element>
+            <xs:element name="RequirementPriorityCode" default="medium" nillable="false">
+               <xs:annotation>
+                  <xs:documentation>How critical this requirement is to the projects.  When multiple projects need this we use the highest priority code.</xs:documentation>
+               </xs:annotation>
+               <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                     <xs:enumeration value="very-high"/>
+                     <xs:enumeration value="high"/>
+                     <xs:enumeration value="medium"/>
+                     <xs:enumeration value="low"/>
+                  </xs:restriction>
+               </xs:simpleType>
+            </xs:element>
+            <xs:element name="RequirementCompletionStatusCode" nillable="false">
+               <xs:annotation>
+                  <xs:documentation>The compleation status of this requirement.</xs:documentation>
+               </xs:annotation>
+               <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                     <xs:enumeration value="new"/>
+                     <xs:enumeration value="under-review"/>
+                     <xs:enumeration value="approved"/>
+                     <xs:enumeration value="in-development"/>
+                     <xs:enumeration value="in-test"/>
+                     <xs:enumeration value="complete"/>
+                  </xs:restriction>
+               </xs:simpleType>
+            </xs:element>
+            <xs:element name="RequirementBusinessTerms" nillable="false" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>A list of the business terms used in this requirment.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="RequirementDataElementID" nillable="false" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>All the data elements in requirement.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="RequirmentBusienssRuleID" nillable="false" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>Listing of business rules in this requirment.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="RequirmentBusinessAnalists" nillable="false" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The BA assigned to this requirement.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
