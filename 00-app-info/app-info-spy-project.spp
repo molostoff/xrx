@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+	<Folder FolderName="Test Files" ExtStr="xml;cml;math;mtx;rdf;smil;svg;wml" ValidFileSet="Yes" ValidFile="app-info.xsd">
+		<File FilePath="sample-instance-all-ns.xml" HomeFolder="Yes"/>
+		<File FilePath="sample-instance-all.xml" HomeFolder="Yes"/>
+		<File FilePath="sample-instance-min-ns.xml" HomeFolder="Yes"/>
+		<File FilePath="sample-instance-min.xml" HomeFolder="Yes"/>
+		<File FilePath="sample-instance-all-default-ns.xml" HomeFolder="Yes"/>
+	</Folder>
+	<Folder FolderName="XQuery Files" ExtStr="xq;xql;xquery"/>
+	<Folder FolderName="HTML Files" ExtStr="html;htm;xhtml;asp"/>
+	<Folder FolderName="XML Schemas" ExtStr="xsd">
+		<File FilePath="app-info.xsd" HomeFolder="Yes"/>
+	</Folder>
+	<Folder FolderName="Help Files">
+		<File FilePath="README.xhtml" HomeFolder="Yes"/>
+	</Folder>
+</Project>

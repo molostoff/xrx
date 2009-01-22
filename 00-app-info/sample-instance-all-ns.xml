@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xrx:app-info xmlns:xrx="http://code.google.com/p/xrx">
+   <xrx:app-id>text</xrx:app-id>
+   <xrx:app-name>text</xrx:app-name>
+   <xrx:app-verstion-id>text</xrx:app-verstion-id>
+   <xrx:app-description-text>text</xrx:app-description-text>
+   <xrx:app-creator-text>text</xrx:app-creator-text>
+   <xrx:app-license-type-code>text</xrx:app-license-type-code>
+   <xrx:app-license-uri>text</xrx:app-license-uri>
+   <xrx:breadcrumb-label>text</xrx:breadcrumb-label>
+   <xrx:data-collection>text</xrx:data-collection>
+   <xrx:main-menu-order>1</xrx:main-menu-order>
+   <xrx:include-in-search-indicator>text</xrx:include-in-search-indicator>
+   <xrx:doc-root-path>text</xrx:doc-root-path>
+   <xrx:doc-id-path>text</xrx:doc-id-path>
+   <xrx:doc-title-path>text</xrx:doc-title-path>
+   <xrx:doc-viewer-path>text</xrx:doc-viewer-path>
+   <xrx:search-order-weight>text</xrx:search-order-weight>
+   <xrx:app-notes-text>text</xrx:app-notes-text>
+</xrx:app-info>

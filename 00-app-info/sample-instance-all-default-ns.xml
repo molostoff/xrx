@@ -1,0 +1,25 @@
+<app-info  xmlns="http://code.google.com/p/xrx">
+   <app-id>text</app-id>
+   <app-name>text</app-name>
+   <app-verstion-id>text</app-verstion-id>
+   <app-description-text>text</app-description-text>
+   <app-creator-text>text</app-creator-text>
+   <app-license-type-code>apache-2.0</app-license-type-code>
+   <app-license-uri>text</app-license-uri>
+   <breadcrumb-label>text</breadcrumb-label>
+   <data-collection>text</data-collection>
+   <app-icon-path>text</app-icon-path>
+   <main-menu-order>2</main-menu-order>
+   <include-in-search-indicator>text</include-in-search-indicator>
+   <doc-root-path>text</doc-root-path>
+   <doc-id-path>text</doc-id-path>
+   <doc-title-path>text</doc-title-path>
+   <list-items-uri>text</list-items-uri>
+   <doc-viewer-path>text</doc-viewer-path>
+   <search-order-weight>text</search-order-weight>
+   <app-notes-text>text</app-notes-text>
+   <app-icon-uri>text</app-icon-uri>
+   <app-help-uri>text</app-help-uri>
+   <include-in-new-indicator>text</include-in-new-indicator>
+   <app-new-uri>text</app-new-uri>
+</app-info>

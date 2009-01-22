@@ -1,0 +1,134 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xrx="http://code.google.com/p/xrx" targetNamespace="http://code.google.com/p/xrx" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="app-info">
+      <xs:annotation>
+         <xs:documentation>Information about an XRX application.  This is used to display site menus and perform site-wide search.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="app-id">
+               <xs:annotation>
+                  <xs:documentation>The collection id of the application under the /db/apps directory.  By default the name of the app collection under /db/apps.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-name">
+               <xs:annotation>
+                  <xs:documentation>The name of the application.  For example "Glossary Manager".</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-verstion-id" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The version of the application such as 2.3.1.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-description-text" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>Textual description of the application.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-creator-text" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The organization or person that created this application.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-license-type-code" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>License type such as bsd, apache, commercial.  If other then use URI or notes.</xs:documentation>
+               </xs:annotation>
+               <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                     <xs:enumeration value="commercial-see-app-license-uri"/>
+                     <xs:enumeration value="apache-2.0"/>
+                     <xs:enumeration value="creative-commons-2.0-sharealike-with-attribution"/>
+                     <xs:enumeration value="other-see-app-license-uri"/>
+                  </xs:restriction>
+               </xs:simpleType>
+            </xs:element>
+            <xs:element name="app-license-uri" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A URI to the license.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="breadcrumb-label" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>What you would like to see in the breadcrumb path.  In general each app breadcrumb label is after the site home and before an item list in the breadcrumb path.  The app-name is used if this value is not supplied.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="data-collection" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The collection that contains the application data.  If unspecified it is /db/apps/[app-id]/data.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-icon-path" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A path to the application icon.  This is usually an image file.  If not specified the app-icon.jpg in the app base collection will be used.  If this file does not exist a default icon will be supplied.   Note, this icon is used to create the main landing page.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="main-menu-order" type="xs:positiveInteger" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The order the application should appear on the main site menu.  Use a small integer.  1 is first.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="include-in-search-indicator" type="xs:boolean" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A true-false if the application should be include in sitewide federated search.  If this is set to true the doc-root-path, doc-id-path, doc-title and doc-viewer-path elements will be used.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="doc-root-path" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The path to the root of the documents in the data collection.  Defaults to "item".</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="doc-id-path" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>How documents are identified.  No two documents in the document collection should have the same id.  The default it /item/id/text().</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="doc-title-path" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>Where in the document we should find the title to the document to display the title on item listings.  By default this is /itm/title/text().</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="list-items-uri" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A link to the URI to list application items.  The default is views/list-items.xq</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="doc-viewer-path" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A path to the XQuery that allows the user to view a single item in the data collection.  The default is /db/apps/APP-ID/views/view-item.xq?id=DOC_ID</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="search-order-weight" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A small number (e.g. 1-10) that indicates how high this appliction hits should be weighted in overall search results.  The higher the number the higher in the rank the search results.  This can be customized by each site to change the relatve search order of the results.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-notes-text" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>Any additional notes about this application.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-icon-uri" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>Link to application icon URI.  Default is images/icon.jpg</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-help-uri" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>Link to application help file.  Default is help/index.xhtml</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="include-in-new-indicator" type="xs:boolean" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>Does this application participate in the new item functionality?  Must be set to be true if it does.  If it does the default URI is APP_HOME/edit/edit.xq?new=true unless the app-new-uri is provided.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="app-new-uri" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A URI to the New Item function.  If this is missing the APP_HOME/edit/edit.xq?new=true will be used..</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
