@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <!-- Person Name Type -->
+   <xsd:simpleType name="PersonNameType">
+      <xsd:annotation>
+         <xsd:documentation>Typically used for a person's name. Legal Characters: A-Z, a-z, 0-9, hyphen, apostrophe and single space. Illegal Character: leading space, trailing space, adjacent spaces, and other symbols.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+         <xsd:maxLength value="35"/>
+         <xsd:pattern value="([A-Za-z0-9'\-] ?)*[A-Za-z0-9'\-]"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <!-- Person Title Type -->
+   <xsd:simpleType name="PersonTitleType">
+      <xsd:annotation>
+         <xsd:documentation>Typically used for a person's title. Legal Characters: printable characters from &#x21; to &#x7E; plus single space. Illegal Character: leading space, trailing space, adjacent spaces.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+         <xsd:maxLength value="35"/>
+         <xsd:pattern value="([&#x0021;-&#x007E;] ?)*[&#x0021;-&#x007E;]"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

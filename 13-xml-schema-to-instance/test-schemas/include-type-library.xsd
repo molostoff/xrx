@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:include schemaLocation="type-library.xsd"/>
+   <xs:element name="IncludeTypeLibraryTest">
+      <xs:annotation>
+         <xs:documentation>Comment describing your root element</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="PersonName" type="PersonNameType"/>
+            <xs:element name="PersonTitle" type="PersonTitleType"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
