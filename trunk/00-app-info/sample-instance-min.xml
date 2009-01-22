@@ -1,0 +1,4 @@
+<app-info xmlns="http://code.google.com/p/xrx">
+   <app-id>my-app</app-id>
+   <app-name>My App</app-name>
+</app-info>

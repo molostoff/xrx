@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>AppInfo README</title>
+   </head>
+   <body>
+      <h1>AppInfo README</h1>
+      <p>The following are definitions of terms use in the app-info configurions files.  The goal of the
+         app-info.xml configurion files are to allow a single zip file to be loaded that will instantaly
+         and functionality to a web site.  Services such as federated search, sitemaps, breadcumbs,
+         navigation bars, creationg of new items and help files should all work semalessly as soon
+         as a new application is loaded.</p>
+      <h1>Terminology</h1>
+      <!-- Definition List -->
+      <dl>
+         <dt>
+            <b>apps-collection</b>
+            <dd>The collection that is the root of all applications.  For a single user system this might be just
+            /db/apps.  For single server hosting many organizations this may be /db/org-name/apps  This is effectivly
+            where the search starts for all app-info.xml files.  Note that we use "apps" plural.</dd>
+         </dt>
+         <dt>
+            <b>app-home-collection</b>
+            <dd>The base collection of each application.  
+               Designed to be a self-contained application collection that can be easiliy added to a web server
+               using a single drag-and-drop into the /db/apps collection.  It usually has the app-info.xml file
+               in its root.  All the resources needed by the application must be stored in this collection.</dd>
+         </dt>
+         
+         <dt>
+            <b>app-info.xml</b>
+            <dd>An XML configuration file in the root of each application.  This file tells the web application
+            server how to find resources within this application.  See the app-info.xsd file for a full description
+            of these configuraiton paramters.</dd>
+         </dt>
+
+         <dt>
+            <b>app-data-collection</b>
+            <dd>The data collection of each application.  This is where transactional data is stored.  
+               In general this is a collection called "data" which is a direct decendant of the app-home-collection.
+            Note that many forms applications place each transactional item as a seperate file in this collection.
+            If collections contain too many data files (over 1,000) you should consider putting them in subcollections.
+            When forms read and write items we need to think about how file locking must be managed.</dd>
+         </dt>
+         
+         <dt>
+            <b>data-item</b>
+            <dd>A data item is a unit of transactional work.  Entire items are typically created by forms
+               and loaded by forms.  When items are loaded by a form the server item should be locked
+               to prevent updates by other users.</dd>
+         </dt>
+         <dt>
+            <b>views</b>
+            <dd>A view is any read-only query over data items in the app-data-collection.  They are typically
+            stored in the view collection within the applicaiton.  Because views are read-only they never
+            lock application data.  There are two default views created by application builders:  list-items.xq and view-item.xq</dd>
+         </dt>
+         <dt>
+            <b>list-items.xq</b>
+            <dd>The default view for listing data-items in the data collection.  This can be a simple list with a link
+            to the view-item.xq query.  Collections that have more than 50 items should use a subsequence operator to view
+            only the first 50 items in the data collection.  Note that items is plural since it lists many items.  The list-items.xq
+            query typically has two arguments: the item number to start at and the number of items to view per web page.
+            So a typical URI might be: list-items?start=30&amp;num=20.  This is the same standard that Google uses.
+            </dd>
+         </dt>
+         <dt>
+            <b>view-item.xq</b>
+            <dd>The default viewer for creating a read-only view of an item in the data collection.  The view-item.xq
+            query is specifically designed to be read-only but can have menu for Edit and Delete.  The parameter id is required.
+            view-item?id=7</dd>
+         </dt>
+         <dt>
+            <b>search</b>
+            <dd>The search collection includes a search.xq query that only searches data in the application.  The collection can also
+            include a search-form.xq query that creates search forms using either HTML or XForms.</dd>
+         </dt>
+      </dl>
+   </body>
+</html>
