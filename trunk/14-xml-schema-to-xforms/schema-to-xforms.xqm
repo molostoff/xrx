@@ -50,9 +50,14 @@ declare function s2f:get-element-for-name($schema as node(), $element-name as xs
    $schema//xs:element[@name=$element-name]
 };
 
-declare function s2f:element-name-to-xforms-control($schema as node(), $element-name as xs:string) as node() {
+declare function s2f:element-name-to-xforms-control($schema as node(), $element-name as xs:string, $use-current as xs:boolean) as node() {
 (: FIXME: put in a lookup into a metadata registry to get a nice-looking data element label :)
 (: xrx:get-label-for-element({$element-name}) :)
+let $name :=
+   if ($use-current)
+   then ('.')
+   else ($element-name)
+return
 if (ends-with(lower-case($element-name), 'code'))
     then (
        let $element := s2f:get-element-for-name($schema, $element-name)
@@ -91,39 +96,103 @@ declare function s2f:process-complex-element($complex-element as node()) as node
         }
 };
 
+(: return true if an element is a complex element :)
+declare function s2f:isComplex($schema as node(), $element as node()) as xs:boolean {
+   let $element-name := concat(string($element/@name), string($element/@ref))
+   return
+      if ($schema//xs:element[@name=$element-name]/xs:complexType)
+         then true()
+         else false()
+};
+
 (: Recursive function to process all complex elements in an XML Schema :)
 (: this uses the fact that any XForms must set the context of the instance :)
 (: Schema must be passed to allow ref lookups :)
 (: complex-element is the current place we are looking up :)
-declare function s2f:group-hier($schema as node(), $complex-element as node(), $base as xs:string) as node() {
-   let $element-name := concat(string($complex-element/@name), string($complex-element/@ref))
+declare function s2f:xforms-body($schema as node(), $element as node(), $base as xs:string) as node() {
+   let $element-name := concat(string($element/@name), string($element/@ref))
    return
        (: if there are any complex types under this complex type - recurse:)
-       if ($complex-element/xs:complexType)
-          then
-            if ($complex-element[@maxOccurs])
+       if ($schema//xs:element[@name=$element-name and @maxOccurs])
+          then (s2f:repeat($schema, $element, $base))
+          else (
+            (: else if we have a complex element :)
+            if (s2f:isComplex($schema, $element))
                then (
-                  s2f:repeat($schema, $complex-element)
-                  )
-               else (
-                  <xf:group ref="{concat($base, '/', $element-name)}">
-                  <xf:label class="group-label">{$element-name}</xf:label>
-                  {
-                     for $sub-element in $complex-element/xs:complexType/*/xs:element
-                       return
-                          (s2f:group-hier($schema, $sub-element, concat($base, '/', $element-name))
-                          )
-                   }</xf:group>
-               )
-          else (s2f:element-name-to-xforms-control($schema, $element-name))
+                     <xf:group ref="{concat($base, '/', $element-name)}">
+                        <xf:label class="group-label">{$element-name}</xf:label>
+                        {for $sub-element in $element/xs:complexType/*/xs:element
+                            return
+                                s2f:xforms-body($schema, $sub-element, concat($base, '/', $element-name))
+                        }
+                   </xf:group>
+                   )
+              else (: we have a simple no-repeating element :)
+                 (s2f:element-name-to-xforms-control($schema, $element-name, false()))
+          )
 };
 
+(: Generate a single XForms repeat structure for adding and deleting items from a sequence.
+Should be called by the XForms driver every time it encounters an element with cardinality greater than one :)
+declare function s2f:repeat($schema as node(), $element as node(), $base as xs:string) as node()* {
+(: $schema is the XML Schema that we are transforming.
+   $element is the current element that is a repeated element.
+   $base is the full path from the base of the XML Schema :)
+let $name := string($element/@name)
+(: if we have the full base like /Root/element/sub-element we only want "sub-element" after
+the instance('save-data')/ here so we trim the "/Root/" off :)
+let $base-temp := substring-after($base, '/')
+let $new-base := substring-after($base-temp, '/')
+let $first-field-id := concat(string($schema//xs:element[@name=$name]/xs:complexType/*/xs:element[1]/@name), '-id')
+return
+   <div class="repeat">
+       <xf:repeat nodeset="instance('save-data')/{$new-base}/{$name}" id="{$name}-repeat">
+           {
+           (: if we have just a complex element :)
+           if (exists($schema//xs:element[@name=$name]/xs:complexType/*/xs:element))
+              then (
+                   for $sub-element at $count in $schema//xs:element[@name=$name]/xs:complexType/*/xs:element
+                     let $sub-element-name := string($sub-element/@name)
+                     return
+                     if ($sub-element/*)
+                        then (s2f:xforms-body($schema, $sub-element, $base))
+                        else (s2f:element-name-to-xforms-control($schema, $sub-element-name, false()))
+                    )
+              else ( (: else we have just a single element :)
+                s2f:element-name-to-xforms-control($schema, $name, true())
+            )
+           }
+           <xf:trigger bind="{$name}-delete-trigger">
+               <xf:label>Delete</xf:label>
+               <xf:delete nodeset="instance('save-data')/{$new-base}/{$name}[index('{$name}-repeat')]" ev:event="DOMActivate"/>
+           </xf:trigger>
+       </xf:repeat>
+       <xf:trigger bind="{$name}-add-trigger">
+           <xf:label>Add {$name}</xf:label>
+           <xf:action ev:event="DOMActivate">
+              <xf:insert nodeset="instance('save-data')/{$new-base}/{$name}" at="last()" position="after"/>
+              { (: this initializes the values of the copied last row to nulls.  Can also use an origin attribute. :)
+              for $sub-element at $count in $schema//xs:element[@name=$name]/xs:complexType/*/xs:element
+                 let $name := string($sub-element/@name)
+                 return 
+                    <xf:setvalue ref="instance('save-data')/{$new-base}/{$name}[index('{$name}-repeat')]/{$name}" value=""/>
+              }
+              <!-- this puts the cursor in the first field of the new row we just added -->
+              <xf:setfocus control="{$first-field-id}"/>
+           </xf:action>
+       </xf:trigger>
+    </div>
+};
 
+(: Create bind statements for all required fields :)
+(: FIXME: Check for duplicates - never put in a bind if we already have it.
+Get a list of required elements and run it through distinct-values. :)
 declare function s2f:required-binds($schema as node()) as node()* {
 if (exists($schema//xs:element[not(@minOccurs='0') and not(xs:complexType)]))
   then (
       <!-- required fields -->,
       (: binds for required fields: any element that does NOT have a minOccurs = 0 or HAS a minOccurs over 1 :)
+      (: as an efficiency measure we can replace "//" with an absolute path to the element :)
       for $element in $schema//xs:element[not(@minOccurs='0') and not(xs:complexType)]
           return
              <xf:bind nodeset="//{string($element/@name)}" required="true()"/>
@@ -172,7 +241,7 @@ declare function s2f:element-to-select1($element as node()) as node(){
    }</xf:select1>
 };
 
-(: create a list of conditional views instance for binding delete triggers :)
+(: Create a list of conditional views instance for binding add delete triggers :)
 declare function s2f:conditional-views($schema as node()) as node()* {
 if (exists($schema//xs:element[exists(@maxOccurs) and @maxOccurs != '1']))
   then (
@@ -186,7 +255,7 @@ if (exists($schema//xs:element[exists(@maxOccurs) and @maxOccurs != '1']))
            }
            
            {(: Add triggers we want to include if there are any @maxOccurs attributes @maxOccurs != 'unbounded' :)
-           for $element in $schema//xs:element[exists(@maxOccurs) and @maxOccurs != 'unbounded']
+           for $element in $schema//xs:element[exists(@maxOccurs)]
               return
                  element {concat(string($element/@name), '-add-trigger')} {''}
            }
@@ -225,37 +294,7 @@ then (
   else ()
 };
 
-(: Generate a single XForms repeat structure for adding and deleting items from a sequence.
-Should be called by the XForms driver every time it encounters an element with cardinality greater than one :)
-declare function s2f:repeat($schema as node(), $element as node()) as node()* {
-let $name := string($element/@name)
-return
-   <div class="repeat">
-       <xf:repeat nodeset="instance('save-data')//{$name}" id="{$name}-repeat">
-           {for $sub-element in $schema//xs:element[@name=$name]/xs:complexType/*/xs:element
-             let $sub-element-name := string($sub-element/@name)
-             return
-             s2f:element-name-to-xforms-control($schema, $sub-element-name)
-           }
-           <xf:trigger bind="{$name}-delete-trigger">
-               <xf:label>Delete</xf:label>
-               <xf:delete nodeset="instance('save-data')//{$name}[index('{$name}-repeat')]" ev:event="DOMActivate"/>
-           </xf:trigger>
-       </xf:repeat>
-       <!-- TODO put in rule for using the add trigger bind when maxOccurs is not unbounded bind="{$name}-add-trigger" -->
-       <xf:trigger >
-           <xf:label>Add {$name}</xf:label>
-           <xf:action ev:event="DOMActivate">
-              <xf:insert nodeset="instance('save-data')/{$name}" at="last()" position="after"/>
-              <!-- this initialized the values of the phone number to null.  Can also use an origin attribute.   -->
-              <xf:setvalue ref="/PersonPhones/Phone[index('{$name}-repeat')]/PhoneDescriptionText" value=""/>
-              <xf:setvalue ref="/PersonPhones/Phone[index('{$name}-repeat')]/PhoneNumber" value=""/>
-              <!-- this puts the cursor in the first field of the new row we just added -->
-              <xf:setfocus control="PhoneDescriptionText"/>
-           </xf:action>
-       </xf:trigger>
-    </div>
-};
+
 
 (: generate an XForms application using XRX app-info conventions from an XML Schema :)
 declare function s2f:schema-to-xforms($schema as node(), $schema-name as xs:string) as node(){
@@ -280,6 +319,7 @@ return
  <head>
     <title>XForms application generated from constraint schema.</title>
     {style:import-css()}
+    
     <xf:model>
          <!-- this instance holds the data we save -->
          <xf:instance xmlns="" id="save-data" src="/exist/rest/db/xrx/modules/test-input-instances/{$my-form}.xml"/>
@@ -302,9 +342,9 @@ return
  </head>
   <body>
      {style:header()}
-     {style:breadcrumb()}
+     {style:breadcrumb()} &gt; <a href="/exist/rest/db/xrx/modules/schema-to-xforms-test.xq">List Schemas</a>
      <!-- start at the base and schema and generate all groups.  The second is the starting point. -->
-     {s2f:group-hier($schema, $schema, '')}
+     {s2f:xforms-body($schema, $schema, '')}
    
       <xf:submit submission="save">
          <xf:label>Save</xf:label>
