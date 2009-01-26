@@ -30,7 +30,7 @@ return
               <th>Modified</th>
               <th>Instance</th>
               <th>Find Root</th>
-              <th>ComplexTypes</th>
+              <th>List Elements</th>
               <th>Generate XForms</th>
               <th>XML Schema</th>
            </tr>
@@ -50,7 +50,7 @@ return
                 <td>{$modified}</td>
                 <td><a href="schema-to-instance.xq?schema-path={$schema-path}">Instance</a></td>
                 <td><a href="find-root-test.xq?schema-path={$schema-path}">Find Root</a></td>
-                <td><a href="schema-recursion.xq?schema-path={$schema-path}">ComplexTypes</a></td>
+                <td><a href="list-elements.xq?schema-path={$schema-path}">List Elements</a></td>
                 <td><a href="schema-to-xforms.xq?schema-path={$schema-path}">Generate XForms</a></td>
                 <td><a href="{$schema-webroot-path}">XML Schema</a></td>
             </tr>
