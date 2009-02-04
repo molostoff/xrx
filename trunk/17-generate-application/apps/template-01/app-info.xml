@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app-info xmlns="http://code.google.com/p/xrx">
+    <app-id>template</app-id>
+    <app-name>Template</app-name>
+    <app-version-id>1.0</app-version-id>
+    <app-description-text>Template Application</app-description-text>
+    <app-creator-text>Dan McCreary</app-creator-text>
+    <app-license-type-code>apache-2.0</app-license-type-code>
+    <app-license-uri>http://www.apache.org/licenses/LICENSE-2.0.html</app-license-uri>
+    <breadcrumb-label>Template</breadcrumb-label>
+    <data-collection>data</data-collection>
+    <app-icon-path>images/app-icon.jpg</app-icon-path>
+    <main-menu-order>20</main-menu-order>
+    <include-in-search-indicator>true</include-in-search-indicator>
+    <doc-root-path>template</doc-root-path>
+    <doc-id-path>id/text()</doc-id-path>
+    <doc-title>title/text()</doc-title>
+    <doc-viewer-path>views/view-item.xq</doc-viewer-path>
+    <search-order-weight>1</search-order-weight>
+    <app-notes-text>This is a sample app-info.xml file used in the template.</app-notes-text>
+</app-info>
