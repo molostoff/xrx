@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <!-- Note: All elements that end in db-path are relative to the database root collection such as /db/foobar -->
+    
+
+    <!-- The collection that all applications will be generted into if they are not passed as a rest parameter -->
+    <apps-db-path>/db/xrx/apps</apps-db-path>
+    
+    <!-- login and password used to generate applications.  Must have write access th the apps-db-path collection. -->
+    <app-gen-login>admin</app-gen-login>
+    <app-gen-passwrod>admin123</app-gen-passwrod>
+    
+    <!-- The default URI of the style module -->
+    <style-module-uri>http://code.google.com/p/xrx/style</style-module-uri>
+    
+    <!-- The default database of the style module -->
+    <style-module-db-path>/db/xrx/modules/style.xqm</style-module-db-path>
+    
+    <!-- The default template to use to generate each application. -->
+    <default-app-template>template-01</default-app-template>
+</site>

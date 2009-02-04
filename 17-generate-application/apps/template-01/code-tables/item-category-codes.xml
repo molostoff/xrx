@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<code-table>
+    <code-table-name>item-category-code</code-table-name>
+    <items>
+        <item>
+            <label>Small</label>
+            <value>1</value>
+        </item>
+        <item>
+            <label>Medium</label>
+            <value>2</value>
+        </item>
+        <item>
+            <label>Large</label>
+            <value>3</value>
+        </item>
+        <item>
+            <label>Extra Large</label>
+            <value>4</value>
+        </item>
+    </items>
+</code-table>
