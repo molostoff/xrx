@@ -74,8 +74,13 @@ let $copy-search-result := xmldb:copy(concat($template-db-path, '/search'), $app
 let $app-views-db-path := xmldb:create-collection($app-db-path, 'views')
 let $copy-views := local:copy-xquery-files(concat($template-db-path, '/views'), concat($app-db-path, '/views'))
 
-(: fixme - write a local function that gets all teh child resources xmldb:get-child-resources($a as item()) xs:string*
-and copies each XQuery file one by one :)
+(: now the collections that only have XQuery files but no XML files :)
+let $app-search-db-path := xmldb:create-collection($app-db-path, 'search')
+let $copy-search := local:copy-xquery-files(concat($template-db-path, '/search'), concat($app-db-path, '/search'))
+
+(: now recopy the XQuery files in edit and search :)
+
+(: hand copy the individual files with mixed types :)
 
 let $copy-edit.xq := xmldb:copy(
    concat($template-db-path, '/edit'), 
@@ -89,9 +94,9 @@ let $copy-delete.xq := xmldb:copy(
    concat($template-db-path, '/edit'), 
    concat($app-db-path, '/edit'), 'delete.xq')
 
-let $copy-delete.xq := xmldb:copy(
-   concat($template-db-path, '/edit'), 
-   concat($app-db-path, '/edit'), 'delete.xq')
+let $copy-search.xq := xmldb:copy(
+   concat($template-db-path, '/search'), 
+   concat($app-db-path, '/search'), 'search.xq')
    
 return
 <html>
