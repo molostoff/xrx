@@ -16,6 +16,18 @@ declare function local:sitemap($collection as xs:string) as node()* {
         }</ol>
 };
 
+(: this function copies all the XQuery files from the source collection to the destination collection
+to get around the bug in copy for collection that does not correctly copy the mime type :)
+declare function local:copy-xquery-files($src as xs:string, $dest as xs:string) {
+   for $child in xmldb:get-child-resources($src)
+      return
+      if (matches($child, '\.xq'))
+         then (
+            xmldb:copy($src, $dest, $child)
+         )
+         else ()
+};
+
 declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
 
 (: XQuery to generate an XRX appliction from and XML Schema :)
@@ -51,14 +63,36 @@ let $template-source-db-path := concat($apps-db-path, '/', $template-id)
 let $copy-index-result := xmldb:copy($template-db-path, $app-db-path, 'index.xq')
 let $copy-app-info-result := xmldb:copy($template-db-path, $app-db-path, 'app-info.xml')
 
-(: now the subfolders :)
+(: First now the subfolders that do not contain XQuery files :)
 let $copy-data-result := xmldb:copy(concat($template-db-path, '/data'), $app-db-path)
 let $copy-code-tables-result := xmldb:copy(concat($template-db-path, '/code-tables'), $app-db-path)
 let $copy-edit-result := xmldb:copy(concat($template-db-path, '/edit'), $app-db-path)
 let $copy-images-result := xmldb:copy(concat($template-db-path, '/images'), $app-db-path)
 let $copy-search-result := xmldb:copy(concat($template-db-path, '/search'), $app-db-path)
-let $copy-views-result := xmldb:copy(concat($template-db-path, '/views'), $app-db-path)
 
+(: now the collections that only have XQuery files but no XML files :)
+let $app-views-db-path := xmldb:create-collection($app-db-path, 'views')
+let $copy-views := local:copy-xquery-files(concat($template-db-path, '/views'), concat($app-db-path, '/views'))
+
+(: fixme - write a local function that gets all teh child resources xmldb:get-child-resources($a as item()) xs:string*
+and copies each XQuery file one by one :)
+
+let $copy-edit.xq := xmldb:copy(
+   concat($template-db-path, '/edit'), 
+   concat($app-db-path, '/edit'), 'edit.xq')
+
+let $copy-delete-confirm.xq := xmldb:copy(
+   concat($template-db-path, '/edit'), 
+   concat($app-db-path, '/edit'), 'delete-confirm.xq')
+
+let $copy-delete.xq := xmldb:copy(
+   concat($template-db-path, '/edit'), 
+   concat($app-db-path, '/edit'), 'delete.xq')
+
+let $copy-delete.xq := xmldb:copy(
+   concat($template-db-path, '/edit'), 
+   concat($app-db-path, '/edit'), 'delete.xq')
+   
 return
 <html>
    <head>
@@ -75,8 +109,11 @@ return
       App DB Path = {$app-db-path}
       <h5>The following collections have been created:</h5>
       {local:sitemap($app-db-path)}
+      <h5>Test</h5>
+      <a href="/exist/rest{$app-db-path}/index.xq">Go to new index.xq</a>
       <h5>Delete</h5>
       {$app-db-path} - <a href="remove-app.xq?app-id={$app-id}"> Remove This Application</a>
+      
       {style:footer()}
    </body>
 </html>
