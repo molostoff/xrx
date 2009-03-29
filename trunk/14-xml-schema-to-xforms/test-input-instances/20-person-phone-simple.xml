@@ -1,0 +1,5 @@
+<Person>
+   <Phone>home: 555-123-1111</Phone>
+   <Phone>work: 555-123-2222</Phone>
+   <Phone>cell: 555-123-3333</Phone>
+</Person>

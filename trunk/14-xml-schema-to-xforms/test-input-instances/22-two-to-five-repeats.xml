@@ -1,0 +1,14 @@
+<PersonPhones>
+   <Phone>
+      <PhoneDescriptionText>Item1</PhoneDescriptionText>
+      <PhoneNumber>Number1</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>Item2</PhoneDescriptionText>
+      <PhoneNumber>Number2</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>Item3</PhoneDescriptionText>
+      <PhoneNumber>Number3</PhoneNumber>
+   </Phone>
+</PersonPhones>

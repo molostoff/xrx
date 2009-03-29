@@ -1,0 +1,22 @@
+<PersonPhones>
+   <Phone>
+      <PhoneDescriptionText>Home</PhoneDescriptionText>
+      <PhoneNumber>123-456-7890</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>Work</PhoneDescriptionText>
+      <PhoneNumber>123-456-7891</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>Moble-1</PhoneDescriptionText>
+      <PhoneNumber>123-456-7892</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>Moble-2</PhoneDescriptionText>
+      <PhoneNumber>123-456-7893</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>Cabin</PhoneDescriptionText>
+      <PhoneNumber>123-456-7894</PhoneNumber>
+   </Phone>
+</PersonPhones>
