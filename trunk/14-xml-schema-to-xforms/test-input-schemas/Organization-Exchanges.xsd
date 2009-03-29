@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="Organization">
+      <xs:annotation>
+         <xs:documentation>Comment describing your root element</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="OrganizationID"/>
+            <xs:element name="OrganizationName"/>
+            <xs:element name="OrganizatonDescriptionText"/>
+            <xs:element name="OrganzationNotesText"/>
+            <xs:element name="SendingExchangetID" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="RecievingExchangeID" minOccurs="0" maxOccurs="unbounded"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

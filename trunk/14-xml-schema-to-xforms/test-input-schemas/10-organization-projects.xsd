@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Dan McCreary (MINNESOTA DEPT. OF REVENUE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="OrganizationDocument">
+      <xs:annotation>
+         <xs:documentation>A file for each organization.t</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="OrganizationID"/>
+            <xs:element name="OrganizationName"/>
+            <xs:element name="Projects">
+               <xs:annotation>
+                  <xs:documentation>A list of projects for each organizaton.</xs:documentation>
+               </xs:annotation>
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="Project" maxOccurs="unbounded">
+                        <xs:annotation>
+                           <xs:documentation>A single project.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="ProjectID"/>
+                              <xs:element name="ProjectName"/>
+                              <xs:element name="Goals">
+                                 <xs:annotation>
+                                    <xs:documentation>The goals for this project.</xs:documentation>
+                                 </xs:annotation>
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="Goal" maxOccurs="unbounded">
+                                          <xs:annotation>
+                                             <xs:documentation>A single goal.</xs:documentation>
+                                          </xs:annotation>
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element name="GoalID"/>
+                                                <xs:element name="GoalName"/>
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Tasks">
+                                 <xs:annotation>
+                                    <xs:documentation>The tasks for this project.</xs:documentation>
+                                 </xs:annotation>
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="Task" maxOccurs="unbounded">
+                                          <xs:annotation>
+                                             <xs:documentation>A single task.</xs:documentation>
+                                          </xs:annotation>
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element name="TaskID"/>
+                                                <xs:element name="TaskName"/>
+                                                <xs:element name="TaskStatusCode"/>
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
