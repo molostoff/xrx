@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="Person">
+      <xs:annotation>
+         <xs:documentation>Sample person with many phones.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="Phone" minOccurs="2" maxOccurs="5">
+               <xs:annotation>
+                  <xs:documentation>A single phone entry.</xs:documentation>
+               </xs:annotation>
+               <xs:complexType/>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

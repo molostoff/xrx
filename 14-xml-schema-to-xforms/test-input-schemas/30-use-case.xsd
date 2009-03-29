@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="UseCase">
+      <xs:annotation>
+         <xs:documentation>A use case or story about how a user interacts with a computer system.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="id"/>
+            <xs:element name="UseCaseName">
+               <xs:annotation>
+                  <xs:documentation>A unique name for the use written in verb-noun format should describe an achievable goal.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseVersion" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A version of the use case.  Could be either symbolic (draft, final) or a number version (1.2)</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseGoalText" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>What the actor intends to achieve with this use case.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseSummaryText" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The essence of a use case in a few sentences or paragraph and includes the goal and principal actor.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseActor" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>Someone or something outside the system that either acts on the system.  A role name of an object is often used.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCasePreconditionsText" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>All the conditions that must be true for the trigger to meaningfully cause the initiation of the use case.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseTriggersText" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>A description of the event that causes the use case to be initiated.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseEventsText" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>A scenario, or typical course of events, also called "flow", "happy flow" and "happy path".</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseAlternatePaths" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>Alternative paths for the basice course for example error handling.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCasePostconditions" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>What the change in state of the system will be after the use case completes. Post-conditions are guaranteed to be true when the use case ends.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="BusinessRulesText" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>Rules or policies that determine how an organization conducts its business with regard to a use case.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseNotesText" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>A general section of notes, usually directed to the software development team, that allows less-structured information to be captured in a use case.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseAuthorName" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The name of the primary author of this use case.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="UseCaseCreationDate" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>The date this use case was created.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

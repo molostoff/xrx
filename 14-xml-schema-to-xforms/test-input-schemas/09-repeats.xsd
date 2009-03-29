@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="repeat-test">
+      <xs:annotation>
+         <xs:documentation>Comment describing your root element</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="test-1-no-repeat">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="simple-element-1"/>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+            <xs:element name="test-1-no-repeat-max-1">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="simple-element-2"/>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+            <xs:element name="test-3-two-repeat" maxOccurs="2">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="simple-element-3"/>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+            <xs:element name="test-4-three-repeat" maxOccurs="3">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="simple-element-4"/>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+            <xs:element name="test-2-unbounded-repeat" maxOccurs="unbounded">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="simple-element-5"/>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

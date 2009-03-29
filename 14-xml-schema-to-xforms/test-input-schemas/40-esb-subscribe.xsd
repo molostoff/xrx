@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="UserSubscriptions">
+      <xs:annotation>
+         <xs:documentation>All the subscriptions for a specific user.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="Subscription" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>A single subscription for a user.</xs:documentation>
+               </xs:annotation>
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="id">
+                        <xs:annotation>
+                           <xs:documentation>The identifier of the subscription for this user.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="UserID">
+                        <xs:annotation>
+                           <xs:documentation>The user identifier  of the user.  Often the login name.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="SubscrptionEnabledIndicator" type="xs:boolean">
+                        <xs:annotation>
+                           <xs:documentation>A boolean true/false that indicates if the subscription has been enabled.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="SubscriptionName">
+                        <xs:annotation>
+                           <xs:documentation>A short name for each subscription.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="SubscriptionDescriptionText">
+                        <xs:annotation>
+                           <xs:documentation>A multi-line description of the subscription includeing purpose.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="XPathExpression">
+                        <xs:annotation>
+                           <xs:documentation>The XPath Expression that is used to route the document to the notification system.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="Notifications">
+                        <xs:annotation>
+                           <xs:documentation>One or more notifications that are triggered when the trigger XPath Expression is true.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Notification" maxOccurs="unbounded">
+                                 <xs:annotation>
+                                    <xs:documentation>A single notification.</xs:documentation>
+                                 </xs:annotation>
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="id"/>
+                                       <xs:element name="NotificationTypeCode">
+                                          <xs:annotation>
+                                             <xs:documentation>The type of notification.  copy, E-mail, pager, SMS etc.</xs:documentation>
+                                          </xs:annotation>
+                                       </xs:element>
+                                       <xs:element name="CopyDestinationPath">
+                                          <xs:annotation>
+                                             <xs:documentation>The URI of the place to put the document if the subscription is is copy.</xs:documentation>
+                                          </xs:annotation>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="Logs" minOccurs="0">
+                        <xs:annotation>
+                           <xs:documentation>Logs of when this subscription has been triggered.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="LogEntry" minOccurs="0" maxOccurs="unbounded">
+                                 <xs:annotation>
+                                    <xs:documentation>A record of a subscription hit.</xs:documentation>
+                                 </xs:annotation>
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="EventDateTime">
+                                          <xs:annotation>
+                                             <xs:documentation>The exact date and time in GMT.</xs:documentation>
+                                          </xs:annotation>
+                                       </xs:element>
+                                       <xs:element name="LogDocumentPath">
+                                          <xs:annotation>
+                                             <xs:documentation>A path to the document if retained.</xs:documentation>
+                                          </xs:annotation>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="LogRetentionPeriodDays">
+                        <xs:annotation>
+                           <xs:documentation>How many days should the logs be retained.  The default is 90 days.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
