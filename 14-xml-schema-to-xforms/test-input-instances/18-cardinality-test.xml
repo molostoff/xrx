@@ -1,0 +1,14 @@
+<cardinality-test>
+   <singleton-required>text</singleton-required>
+   <singleton-optional>text</singleton-optional>
+   <zero-to-many>text</zero-to-many>
+   <zero-to-many>text</zero-to-many>
+   <zero-to-many>text</zero-to-many>
+   <one-to-many>text</one-to-many>
+   <one-to-many>text</one-to-many>
+   <one-to-many>text</one-to-many>
+   <singleton-required>text</singleton-required>
+   <two-to-five>text</two-to-five>
+   <two-to-five>text</two-to-five>
+   <two-to-five>text</two-to-five>
+</cardinality-test>

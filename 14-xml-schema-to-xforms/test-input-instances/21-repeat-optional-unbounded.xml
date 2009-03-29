@@ -1,0 +1,22 @@
+<PersonPhones>
+   <Phone>
+      <PhoneDescriptionText>String</PhoneDescriptionText>
+      <PhoneNumber>String</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>String</PhoneDescriptionText>
+      <PhoneNumber>String</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>String</PhoneDescriptionText>
+      <PhoneNumber>String</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>String</PhoneDescriptionText>
+      <PhoneNumber>String</PhoneNumber>
+   </Phone>
+   <Phone>
+      <PhoneDescriptionText>String</PhoneDescriptionText>
+      <PhoneNumber>String</PhoneNumber>
+   </Phone>
+</PersonPhones>
