@@ -6,9 +6,10 @@
       <h1>AppInfo README</h1>
       <p>The following are definitions of terms use in the app-info configurions files.  The goal of the
          app-info.xml configurion files are to allow a single zip file to be loaded that will instantaly
-         and functionality to a web site.  Services such as federated search, sitemaps, breadcumbs,
+         add rich functionality to a web site.  Services such as federated search, sitemaps, breadcumbs,
          navigation bars, creationg of new items and help files should all work semalessly as soon
-         as a new application is loaded.</p>
+         as a new application is loaded.  This is done by each web function quering all the app-info.xml
+         files that are in decendant collections of a central apps collection.</p>
       <h1>Terminology</h1>
       <!-- Definition List -->
       <dl>
@@ -72,7 +73,8 @@
          <dt>
             <b>search</b>
             <dd>The search collection includes a search.xq query that only searches data in the application.  The collection can also
-            include a search-form.xq query that creates search forms using either HTML or XForms.</dd>
+            include a search-form.xq query that creates search forms using either HTML or XForms.  The default
+            seach parameter is "q".  So the search.xq?q=keyword will search all items in this application for "keyword".</dd>
          </dt>
       </dl>
    </body>
