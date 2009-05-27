@@ -6,12 +6,12 @@
 = Goals =
 The goals of the app-info module are the followling.
 
-* Allow drag-and-drop deployment using the WebDAV interface
-* All applications are self-contained in a collection
-* As soon as applications are added the main menu of the content management system is modified
-* The *NewItem* will include new application data types
-* The *Search* will include new application data
-* Linking of items will be enabled (you can link a "Requirement" item into a "Project" item
+  * Allow drag-and-drop deployment using the WebDAV interface
+  * All applications are self-contained in a collection
+  * As soon as applications are added the main menu of the content management system is modified
+  * The *NewItem* will include new application data types
+  * The *Search* will include new application data
+  * Linking of items will be enabled (you can link a "Requirement" item into a "Project" item
 
 
 = Details =
