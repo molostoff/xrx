@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <style text="style/css">
+        text {font-family: Arial narrow, Helvetica, sans-serif;
+              font-weight: bold;
+              }
+        polygon {
+              fill:lightblue;
+              stroke: black;
+        }
+    </style>
+    <desc>XML Schema Sequence Symbol</desc>
+    <g transform="translate(50, 20)" class="sequence">
+        <polygon points="0,10 10,0 50,0 60,10  60,40 50,50  10,50 0,40"></polygon>
+        <circle fill="black" r="5" cx="15" cy="25"/>
+        <circle fill="black" r="5" cx="30" cy="25"/>
+        <circle fill="black" r="5" cx="45" cy="25"/>
+        <line x1="2" y1="25" x2="58" y2="25" stroke="black"/>
+    </g>
+    <text x="50" y="85">Sequence</text>
+    
+    
+    <g transform="translate(50, 105)" class="choice">
+        <polygon points="0,10 10,0 50,0 60,10  60,40 50,50  10,50 0,40"></polygon>
+        <circle fill="black" r="5" cx="30" cy="12"/>
+        <circle fill="black" r="5" cx="30" cy="25"/>
+        <circle fill="black" r="5" cx="30" cy="38"/>
+        <line x1="2" y1="25" x2="12" y2="25" stroke="black"/>
+        <line x1="25" y1="25" x2="58" y2="25" stroke="black"/>
+        <line x1="12" y1="25" x2="25" y2="12" stroke="black"/>
+        <line x1="25" y1="12" x2="48" y2="12" stroke="black"/>
+        <line x1="25" y1="38" x2="48" y2="38" stroke="black"/>
+        <line x1="48" y1="12" x2="48" y2="38" stroke="black"/>
+    </g>
+    <text x="55" y="170">Choice</text>
+    
+    <g transform="translate(50, 190)" class="all">
+        <polygon points="0,10 10,0 50,0 60,10  60,40 50,50  10,50 0,40"></polygon>
+        <circle fill="black" r="5" cx="30" cy="12"/>
+        <circle fill="black" r="5" cx="30" cy="25"/>
+        <circle fill="black" r="5" cx="30" cy="38"/>
+        <line x1="2" y1="25" x2="58" y2="25" stroke="black"/>
+        <line x1="12" y1="12" x2="48" y2="12" stroke="black"/>
+        <line x1="12" y1="38" x2="48" y2="38" stroke="black"/>
+        <line x1="12" y1="12" x2="12" y2="38" stroke="black"/>
+        <line x1="48" y1="12" x2="48" y2="38" stroke="black"/>
+    </g>
+    <text x="70" y="255">All</text>
+    
+</svg>
