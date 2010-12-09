@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:annotation>
+        <xs:documentation>
+            This is a sample XML Schema to encode the data elements needed in Google Charts.
+            It is about 50% done.
+            Dan McCreary.
+          
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType name="google-chart">
+        <xs:sequence>
+            <xs:element name="chart-type-code">
+                <xs:annotation>
+                    <xs:documentation>The type of chart being drawn such as a Line Chart or a Vertical Bar Chart.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="bhs">
+                            <xs:annotation>
+                                <xs:documentation>Bar Chart Horizontal Stacked.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="bhv">
+                            <xs:annotation>
+                                <xs:documentation>Bar Chart Vertical Stacked.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="bvg">
+                            <xs:annotation>
+                                <xs:documentation>Bar Chart Vertical Grouped.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="bhg">
+                            <xs:annotation>
+                                <xs:documentation>Bar Chart Horizontal Grouped</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="lc">
+                            <xs:annotation>
+                                <xs:documentation>Line Chart.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="lxy">
+                            <xs:annotation>
+                                <xs:documentation>Line Chart XY.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="p">
+                            <xs:annotation>
+                                <xs:documentation>2D Pie Chart.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="p3">
+                            <xs:annotation>
+                                <xs:documentation>3D Pie Chart.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="pc">
+                            <xs:annotation>
+                                <xs:documentation>2D Concentric Pie Chart.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="chart-size">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="width">
+                            <xs:annotation>
+                                <xs:documentation>Chart width in pixels.  Try 300.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="height">
+                            <xs:annotation>
+                                <xs:documentation>Chart height in pixels.  Try 150.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chart-data">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="encoding-code">
+                            <xs:annotation>
+                                <xs:documentation>Simple, Extended or Text.  Use Text unless you have a lot of data and you want to encode it.</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="simple"/>
+                                    <xs:enumeration value="extended"/>
+                                    <xs:enumeration value="text"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="values">
+                            <xs:annotation>
+                                <xs:documentation>The decimal numbers for the values of the data you want to plot.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="value">
+                                        <xs:annotation>
+                                            <xs:documentation>Usually positive real numbers for bar charts although negative numbers are valid for many draph</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chart-title" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The title on the chart.  Usually above the chart.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="title-text">
+                            <xs:annotation>
+                                <xs:documentation>The title text.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="title-color"/>
+                        <xs:element name="title-font-size"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chart-data-style">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="legend-posiion-code">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="left"/>
+                                    <xs:enumeration value="right"/>
+                                    <xs:enumeration value="top"/>
+                                    <xs:enumeration value="bottom"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="width"/>
+                        <xs:element name="height"/>
+                        <xs:element maxOccurs="unbounded" name="data-set-property">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="data-set-id"/>
+                                    <xs:element name="color"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chart-axes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="axis-1" type="axis-type"/>
+                        <xs:element name="axis-2" type="axis-type"/>
+                        <xs:element name="axis-3" type="axis-type"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chart-markers"/>
+            <xs:element name="chart-fills"/>
+            <xs:element name="chart-margins"/>
+            <xs:element name="chart-grid"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="axis-type">
+        <xs:sequence>
+            <xs:element name="axis-type-code"/>
+            <xs:element name="axis-start"/>
+            <xs:element name="axis-end"/>
+            <xs:element name="tick-marks-indicator"/>
+            <xs:element name="tick-mark-lengths"/>
+            <xs:element name="labels-indicator"/>
+            <xs:element name="label">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="label-text"/>
+                        <xs:element name="label-position"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
