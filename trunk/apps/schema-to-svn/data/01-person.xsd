@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Person">
+        <xs:annotation>
+            <xs:documentation>An individual human being.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PersonGivenName" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>The name given to a person at birth.  In western countries this is usually the first name.  </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="PersonFamilyName"/>
+                <xs:element name="PersonGenderCode" minOccurs="0"/>
+                <xs:element name="PersonBirthDate" minOccurs="0"/>
+                <xs:element name="PersonLikesSVGIndicator" minOccurs="0"/>
+                <xs:element name="PhoneNumber" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element maxOccurs="unbounded" name="Email"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
