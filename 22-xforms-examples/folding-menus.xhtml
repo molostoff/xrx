@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <title>Hierarchial Item Selection Menu</title>
+        <link href="tree.css" type="text/css" rel="stylesheet"/>
+        <style>
+        @namespace xf url("http://www.w3.org/2002/xforms");
+        #divMenu {
+            float: left;
+            width:220px;
+            margin: 0 20px 0 10px;
+            border: solid green 1px;
+        }
+        
+        /*
+        #divMenu ul {
+        padding: 0 0 5px 5px;
+        }
+        
+        #divMenu li{
+           color:#000000;
+           
+        }
+        
+        #divMenu li .xforms-repeat-item {
+        }
+        
+        #divMenu .xforms-repeat-index {
+        font-weight: bold;
+        
+        }
+        */
+        
+        #inspector {
+            float: left; /* keeps the inspector from getting too wide */
+            border: solid purple 1px;
+        }
+        </style>
+        <xf:model id="modelOI">
+            <xf:instance xmlns="" id="instanceData">
+                <Data>
+                    <currentGroup>g1</currentGroup>
+                    <currentItem>i1</currentItem>
+                    <Group code="g1">
+                        <name>Red</name>
+                        <Item code="i1">Item 1</Item>
+                        <Item code="i2">Item 2</Item>
+                    </Group>
+                    <Group code="g2">
+                        <name>Green</name>
+                        <Item code="i1">Item G2 i1</Item>
+                        <Item code="i2">Item G2 i2</Item>
+                        <Item code="i3">Item G2 i3</Item>
+                    </Group>
+                    <Group code="g3">
+                        <name>Blue</name>
+                        <Item code="i1">Item G3 i1</Item>
+                        <Item code="i2">Item G3 i2</Item>
+                        <Item code="i3">Item G3 i3</Item>
+                    </Group>
+                </Data>
+            </xf:instance>
+            <xf:instance xmlns="" id="instanceTemplate">
+                <Data>
+                    <Group code="">
+                        <Item code=""/>
+                    </Group>
+                </Data>
+            </xf:instance>
+        </xf:model>
+    </head>
+    <body>
+        <div id="divMenu">
+            <xf:output ref="/Data/currentGroup">
+                <xf:label>Current Group:</xf:label>
+            </xf:output>
+            <br/>
+            <xf:output ref="/Data/currentItem">
+                <xf:label>Current Item :</xf:label>
+            </xf:output>
+            <ul>
+                <xf:repeat nodeset="/Data/Group" id="repeatGroup">
+                    <li>
+                        <xf:trigger>
+                            <xf:label>Group <xf:output value="position()"/>
+                            </xf:label>
+                            <xf:action ev:event="DOMActivate">
+                                <xf:setvalue ref="/Data/currentGroup" value="concat('g', index('repeatGroup'))"/>
+                                <xf:setvalue ref="/Data/currentItem" value="'i1'"/>
+                            </xf:action>
+                        </xf:trigger>
+                        <ul>
+                            <xf:repeat nodeset="./Item" id="repeatItem">
+                                <li>
+                                    <xf:trigger ev:event="DOMActivate">
+                                        <xf:label>Item<xf:output value="position()"/>
+                                        </xf:label>
+                                        <xf:action  ev:event="DOMActivate">
+                                            <xf:setvalue ref="/Data/currentGroup" value="concat('g', index('repeatGroup'))"/>
+                                            <xf:setvalue ref="/Data/currentItem" value="concat('i', index('repeatItem'))"/>
+                                        </xf:action>
+                                    </xf:trigger>
+                                </li>
+                            </xf:repeat>
+                        </ul>
+                    </li>
+                </xf:repeat>
+            </ul>
+            <xf:trigger>
+                <xf:label>Insert Group at last</xf:label>
+                <xf:action ev:event="DOMActivate">
+                    <xf:insert nodeset="Group" at="last()" position="after" origin="instance('instanceTemplate')/Group"/>
+                    <xf:setvalue ref="/Data/currentGroup" value="count(/Data/Group)"/>
+                    <xf:setvalue ref="/Data/currentItem" value="/Data/Group[count(/Data/Group) - 1]/Item[last()]/@code + 1"/>
+                </xf:action>
+            </xf:trigger>
+            <xf:trigger>
+                <xf:label>Insert Item at selected Group</xf:label>
+                <xf:action ev:event="DOMActivate">
+                    <xf:insert nodeset="/Data/Group[index('repeatGroup')]/Item" at="index('repeatItem')" position="after" origin="instance('instanceTemplate')/Group/Item"/>
+                </xf:action>
+            </xf:trigger>
+        </div>
+        <div id="inspector">
+                    <xf:group ref="/Data/Group[@code=/Data/currentGroup]">
+                        <fieldset>
+                            <legend>
+                                Group<xf:output value="@code"/>
+                            </legend>
+                            <xf:input ref="name">
+                                <xf:label>Group Name:</xf:label>
+                            </xf:input>
+                        </fieldset>
+                    </xf:group>
+            <xf:group ref="/Data/Group[@code=/Data/currentGroup]/Item[@code=/Data/currentItem]">
+                    <fieldset>
+                        <legend>
+                            Item <xf:output value="@code"/>
+                        </legend>
+                        <xf:input ref=".">
+                            <xf:label>Group Name:</xf:label>
+                        </xf:input>
+                    </fieldset>
+                </xf:group>
+        </div>
+        <div style="clear:both"/>
+        
+        Debug:<br/>
+        <xf:output value="index('repeatGroup')">
+            <xf:label>Selected Group:</xf:label>
+        </xf:output>
+        <br/>
+        <xf:output value="index('repeatItem')">
+            <xf:label>Selected Item:</xf:label>
+        </xf:output>
+    </body>
+</html>
